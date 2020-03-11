@@ -25,6 +25,7 @@ router.use(async (req, res, next) => {
     }
 });
 
+// 토큰 발급 라우터
 router.post('/token', apiLimiter, async (req, res) => {
     const { clientSecret } = req.body;
     try {
@@ -65,7 +66,8 @@ router.post('/token', apiLimiter, async (req, res) => {
     }
 });
 
-router.get('/test', verifyToken, apiLimiter, (req, res) => {
+// 테스트 라우터, 토큰에 대한 정보를 보여준다.
+router.get('/test', apiLimiter, verifyToken, (req, res) => {
     res.json(req.decoded);
 });
 

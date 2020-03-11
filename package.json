@@ -4,8 +4,8 @@
     "description": "NodeBird 웹 애플리케이션 API 서버",
     "main": "app.js",
     "scripts": {
-        "start": "nodemon app",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "cross-env NODE_ENV=production PORT=8001 pm2 start app.js -i 1 --name 'NodeBird-API'",
+        "dev": "nodemon app"
     },
     "author": "ASSN2",
     "license": "ISC",
@@ -18,12 +18,15 @@
         "express": "^4.17.1",
         "express-rate-limit": "^5.1.1",
         "express-session": "^1.17.0",
+        "helmet": "^3.21.3",
+        "hpp": "^0.2.3",
         "jsonwebtoken": "^8.5.1",
         "morgan": "^1.9.1",
         "mysql2": "^2.1.0",
         "passport": "^0.4.1",
         "passport-kakao": "^1.0.0",
         "passport-local": "^1.0.0",
+        "pm2": "^4.2.3",
         "pug": "^2.0.4",
         "sequelize": "^5.21.4",
         "uuid": "^3.4.0"
